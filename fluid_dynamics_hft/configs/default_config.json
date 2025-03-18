@@ -1,0 +1,37 @@
+{
+  "data": {
+    "input_directory": "../data/raw",
+    "output_directory": "../data/processed",
+    "synthetic_data_directory": "../data/synthetic"
+  },
+  "model": {
+    "fluid_parameters": {
+      "viscosity": 0.01,
+      "density": 1.0,
+      "time_step": 0.01
+    },
+    "market_translation": {
+      "price_to_pressure": true,
+      "volume_to_velocity": true
+    }
+  },
+  "patterns": {
+    "detection_window": 50,
+    "min_confidence": 0.75,
+    "pattern_types": ["vortex", "laminar_flow", "turbulence"]
+  },
+  "strategy": {
+    "position_size_limit": 100,
+    "max_drawdown": 0.05,
+    "risk_factor": 0.1,
+    "backtesting": {
+      "start_date": "2022-01-01",
+      "end_date": "2022-12-31"
+    }
+  },
+  "output": {
+    "figures_directory": "../outputs/figures",
+    "reports_directory": "../outputs/reports",
+    "backtest_results_directory": "../outputs/backtest_results"
+  }
+}

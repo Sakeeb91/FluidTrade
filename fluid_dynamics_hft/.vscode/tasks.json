@@ -1,0 +1,66 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run All Tests",
+            "type": "shell",
+            "command": "python -m unittest discover -s tests -p 'test_*.py'",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Lint Project",
+            "type": "shell",
+            "command": "pylint fluid_dynamics_hft/src/",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Format Project",
+            "type": "shell",
+            "command": "black fluid_dynamics_hft/src/ fluid_dynamics_hft/tests/ --line-length=100",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Run Market System",
+            "type": "shell",
+            "command": "python -m fluid_dynamics_hft.src.fluid_market_system --ticker AAPL --date 2023-01-01 --synthetic",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Clean Project",
+            "type": "shell",
+            "command": "find . -type d -name '__pycache__' -exec rm -r {} +; find . -name '*.pyc' -delete",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Generate Documentation",
+            "type": "shell",
+            "command": "pdoc --html --output-dir docs fluid_dynamics_hft/src/",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+} 
